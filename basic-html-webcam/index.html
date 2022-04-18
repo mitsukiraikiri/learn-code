@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <title>HTML Webcamp</title>
+</head>
+
+<body>
+
+  <video autoplay="true" id="video-webcam">
+    browser anda tidak mendukung!
+  </video>
+
+  <script>
+    const video = document.querySelector("#video-webcam");
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia({ video: true }, display, notDisplay);
+    }
+
+    function display(stream) {
+      video.srcObject = stream;
+    }
+
+    function notDisplay() {
+      alert("izinkan akses mengunakan webcam");
+    }
+  </script>
+</body>
+
+</html>
