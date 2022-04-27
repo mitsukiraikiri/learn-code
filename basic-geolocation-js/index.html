@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>BASIC GEOLOCATION JS</title>
+</head>
+
+<body>
+
+  <h1>
+    <span class="lang"></span>, <span class="long"></span>
+  </h1>
+
+  <script>
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      alert('browser anda tidak mendukung geolocation');
+    }
+
+    function success(position) {
+      const { latitude, longitude } = position.coords;
+
+      document.querySelector('.lang').textContent = `latitude : ${latitude}`;
+      document.querySelector('.long').textContent = `longitude : ${longitude}`;
+    }
+
+    function error(err) {
+      alert(err.message);
+    }
+  </script>
+</body>
+
+</html>
